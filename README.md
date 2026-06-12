@@ -1,15 +1,25 @@
 # Curated Essentials - Mini E-Commerce Storefront
 A high-performance, polished mini e-commerce storefront showcasing luxury design principles, modular Sass structure, and deep-linked state synchronization. Built using **React**, **Vite (TypeScript)**, and dedicated **Sass/SCSS Modules** without Tailwind CSS.
 
+## 🌐 Live Demo
+Open the deployed version here:
+https://mini-e-commerce-web-app.vercel.app/
+
 ---
 
 ## 🎨 Design Philosophy & Features
-1.  **Dynamic Infinite Sizing & Grid layout**: Responsive card layout displaying product images, brands, names, and original crossout pricing fetched dynamically.
-2.  **Deterministic Variant State Mesh**: Generates deterministic colors, sizes, and stock values based on product IDs.
-3.  **Visual Stock Configurations**: Sizes show active states, low stock (warning accents with item count left), or custom sold-out styling (crossed out with selection disabled).
-4.  **Deep Linkable Detail Layouts**: Selected color swatches and size buttons are synchronized directly to URL queries.
-5.  **Tactile Cart Drawer actions**: Slides in seamlessly, allowing real-time quantity adjustments (capped at available variant stock), items removal, and bill totals calculation. Cart state is rehydrated automatically from `localStorage`.
-6.  **Simulated Network Friction (Bonus Challenge)**: Intentionally wires up card "Quick Add" and Detail "Add to Cart" to an asynchronous mock function with a simulated delay and an occasional 4% random network error state, which gracefully triggers responsive error-retry components in the UI.
+1.  **Dynamic Product Grid**: Displays product images, brand names, prices, and sale styling pulled from the Fake Store API.
+2.  **Deterministic Variant State Mesh**: Generates deterministic colors, sizes, and stock values based on product IDs to keep SKU behavior consistent.
+3.  **Visual Stock Configurations**: Sizes show active states, low-stock warnings, or sold-out styling with disabled controls.
+4.  **Deep-Linkable Product Detail Pages**: Selected color and size values are synchronized directly to the URL query string.
+5.  **Persistent Cart State**: The shopping cart is saved in `localStorage`, so items remain available across refreshes.
+6.  **Simulated Network Friction**: The add-to-cart flow includes a brief async delay and a small error simulation to demonstrate graceful UI recovery.
+
+## 🧭 Design Decisions & Trade-Offs
+- The variant model is generated deterministically rather than hardcoded to keep the UI reproducible and easy to test.
+- Query-string variant selection is preferred over path-based parameters because it fits e-commerce flows and simplifies URL state handling.
+- The app uses the public Fake Store API directly, which keeps setup simple but means external availability and rate limits are outside the project’s control.
+- The cart drawer uses local persistence for convenience, but a real production app would usually add a backend or server-side cart sync.
 
 ---
 
@@ -22,6 +32,14 @@ A high-performance, polished mini e-commerce storefront showcasing luxury design
 *   **Routing & Deep Linking**: React Router v6
 
 ---
+
+## 📁 Folder Structure
+- src/components/ — reusable UI blocks such as the navbar, product cards, and cart drawer
+- src/data/ — variant generation and product enrichment logic
+- src/hooks/ — custom hooks such as the fetch layer
+- src/stores/ — cart context and shopping cart state management
+- src/styles/ — shared Sass variables and global styles
+- src/test/ — component and cart behavior tests
 
 ## ⚙️ Installation & Local Setup
 
