@@ -1,0 +1,5 @@
+{
+  "name": "Mini E-Commerce Web App",
+  "description": "A high-performance, polished mini e-commerce web storefront with product listings, variant selectors, deep-linkable product detail pages, and a persistent cart drawer built using React and Sass Modules.",
+  "requestFramePermissions": []
+}

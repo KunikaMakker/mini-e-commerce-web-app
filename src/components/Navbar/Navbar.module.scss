@@ -1,0 +1,120 @@
+@import "../../styles/variables";
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(252, 251, 249, 0.85); // Matches $color-bg with modern glassmorphism
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid $color-border;
+  z-index: 100;
+  transition: $transition-smooth;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.5rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  @include mobile {
+    padding: 0 1rem;
+    height: 4rem;
+  }
+}
+
+.logo {
+  font-family: $font-display;
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.15em;
+  color: $color-primary;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  @include mobile {
+    font-size: 1.1rem;
+  }
+}
+
+.tag {
+  font-family: $font-sans;
+  font-weight: 400;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  background-color: $color-primary;
+  color: $color-bg;
+  padding: 0.125rem 0.375rem;
+  border-radius: $radius-sm;
+  line-height: 1;
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cartButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-full;
+  border: 1px solid transparent;
+  color: $color-primary;
+  transition: $transition-fast;
+
+  &:hover {
+    background-color: rgba(17, 17, 17, 0.05);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: $color-badge;
+  color: #FFFFFF;
+  font-family: $font-display;
+  font-size: 0.7rem;
+  font-weight: 600;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  border-radius: $radius-full;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border: 2px solid $color-bg;
+  box-sizing: content-box;
+  animation: popScale 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popScale {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

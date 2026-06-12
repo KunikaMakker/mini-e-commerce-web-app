@@ -1,0 +1,547 @@
+@import "../../styles/variables";
+
+.wrapper {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem 2rem 6rem 2rem;
+
+  @include mobile {
+    padding: 1rem 1rem 4rem 1rem;
+  }
+}
+
+.navRow {
+  margin-bottom: 2.5rem;
+
+  @include mobile {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $font-display;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-secondary;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4.5rem;
+  align-items: start;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    gap: 2rem;
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mainCanvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background-color: #FFFFFF;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  overflow: hidden;
+
+  @include mobile {
+    padding: 1.5rem;
+  }
+}
+
+.mainImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.saleTag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: $color-primary;
+  color: $color-bg;
+  font-family: $font-display;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.625rem;
+  border-radius: $radius-sm;
+}
+
+.thumbnails {
+  display: flex;
+  gap: 1rem;
+
+  @include mobile {
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    
+    &::-webkit-scrollbar {
+      height: 4px;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(17, 17, 17, 0.1);
+    }
+  }
+}
+
+.thumbBtn {
+  width: 5rem;
+  height: 6rem;
+  background-color: #FFFFFF;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  padding: 0.35rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: $transition-fast;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  &:hover {
+    border-color: rgba(17, 17, 17, 0.4);
+  }
+}
+
+.activeThumb {
+  border-color: $color-primary;
+  border-width: 1.5px;
+}
+
+.infoCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.categoryName {
+  font-family: $font-display;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-secondary;
+  letter-spacing: 0.1em;
+}
+
+.brandTitleRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.brandName {
+  font-family: $font-display;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: $color-primary;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: $color-primary;
+  line-height: 1.3;
+
+  @include mobile {
+    font-size: 1.4rem;
+  }
+}
+
+.priceContainer {
+  margin-top: 0.75rem;
+}
+
+.singularPrice {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $color-primary;
+}
+
+.priceSplit {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.currentSalePrice {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $color-error;
+}
+
+.originalSlashedPrice {
+  font-family: $font-display;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: $color-secondary;
+  text-decoration: line-through;
+}
+
+.discountBadge {
+  background-color: rgba(185, 28, 28, 0.1);
+  color: $color-error;
+  font-family: $font-display;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.125rem 0.5rem;
+  border-radius: $radius-sm;
+}
+
+.divider {
+  height: 1px;
+  background-color: $color-border;
+  margin: 1.75rem 0;
+}
+
+.optionSection {
+  margin-bottom: 2rem;
+}
+
+.optionLabel {
+  font-family: $font-display;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-primary;
+  margin-bottom: 0.875rem;
+}
+
+.optionValue {
+  font-family: $font-sans;
+  font-weight: 400;
+  color: $color-secondary;
+  text-transform: none;
+}
+
+.swatchGrid {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+}
+
+.swatchBtn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.2s, border-color 0.2s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.activeSwatch {
+  box-shadow: 0 0 0 2px $color-bg, 0 0 0 4.5px $color-primary;
+  transform: scale(1.05);
+}
+
+.sizeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.sizeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  transition: $transition-fast;
+  position: relative;
+
+  &:hover:not(:disabled) {
+    border-color: $color-primary;
+  }
+}
+
+.sizeNameLabel {
+  font-family: $font-display;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: $color-primary;
+}
+
+.stockLabelLine {
+  font-size: 0.65rem;
+  color: $color-secondary;
+  margin-top: 0.125rem;
+}
+
+.activeSize {
+  background-color: $color-primary !important;
+  border-color: $color-primary !important;
+
+  .sizeNameLabel {
+    color: $color-bg;
+  }
+  .stockLabelLine {
+    color: rgba(252, 251, 249, 0.75); // soft off-white text inside primary button
+  }
+}
+
+.lowStockSize {
+  background-color: rgba(194, 65, 12, 0.03);
+  border-color: rgba(194, 65, 12, 0.22);
+  
+  .stockLabelLine {
+    color: $color-warning;
+    font-weight: 500;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: $color-warning;
+  }
+}
+
+.soldOutSize {
+  background-color: #F8F7F5;
+  border-color: #E6E4E0;
+  cursor: not-allowed;
+  opacity: 0.55;
+
+  .sizeNameLabel {
+    color: #9C9A98;
+    text-decoration: line-through;
+  }
+  .stockLabelLine {
+    color: #9C9A98;
+  }
+}
+
+.purchaseControls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.quantitySection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.qtyLabel {
+  font-family: $font-display;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-secondary;
+}
+
+.quantityPickerBtn {
+  display: flex;
+  align-items: center;
+  border: 1px solid $color-border;
+  border-radius: $radius-sm;
+  background-color: #FFFFFF;
+  height: 2.5rem;
+
+  button {
+    width: 2.5rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: $color-secondary;
+    transition: $transition-fast;
+
+    &:hover:not(:disabled) {
+      background-color: rgba(17, 17, 17, 0.04);
+      color: $color-primary;
+    }
+
+    &:disabled {
+      color: #D2CDC9;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.quantityValueText {
+  font-family: $font-display;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0 1rem;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.cartCTA {
+  @include premium-button;
+  width: 100%;
+  padding: 1rem 1.5rem;
+}
+
+.successCTA {
+  background-color: $color-success !important;
+  border-color: $color-success !important;
+  color: #FFFFFF !important;
+}
+
+.errorCTA {
+  background-color: $color-error !important;
+  border-color: $color-error !important;
+  color: #FFFFFF !important;
+}
+
+.btnSpinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(252, 251, 249, 0.15);
+  border-top-color: $color-bg;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.deliveryStatus {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.775rem;
+  color: $color-secondary;
+  line-height: 1.4;
+}
+
+.sparkle {
+  color: $color-badge;
+  flex-shrink: 0;
+}
+
+.actionNoticeError {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background-color: rgba(185, 28, 28, 0.06);
+  border-left: 3px solid $color-error;
+  border-radius: 2px;
+  font-size: 0.775rem;
+  color: $color-error;
+  line-height: 1.4;
+  animation: slideDownFade 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.descriptionSection {
+  margin-top: 1rem;
+}
+
+.descTitle {
+  font-family: $font-display;
+  font-size: 0.825rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: $color-primary;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.descBody {
+  font-size: 0.875rem;
+  color: $color-secondary;
+  line-height: 1.6;
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 1.5rem;
+}
+
+.backButton {
+  margin-top: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: $font-display;
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $color-secondary;
+  transition: color 0.15s;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

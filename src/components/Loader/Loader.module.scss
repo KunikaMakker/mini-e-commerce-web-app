@@ -1,0 +1,98 @@
+@import "../../styles/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  width: 100%;
+}
+
+.pageLoader {
+  composes: container;
+  height: 50vh;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid rgba(17, 17, 17, 0.05);
+  border-top-color: $color-primary;
+  border-radius: 50%;
+  animation: spin 0.8s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite;
+}
+
+.text {
+  font-family: $font-display;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: $color-secondary;
+}
+
+.skeletonGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+
+  @include mobile {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.imagePlaceholder {
+  aspect-ratio: 4/5;
+  background-color: #ECEAE6;
+  border-radius: $radius-sm;
+  width: 100%;
+}
+
+.lineShort {
+  height: 0.75rem;
+  background-color: #ECEAE6;
+  border-radius: $radius-sm;
+  width: 30%;
+}
+
+.lineMedium {
+  height: 1rem;
+  background-color: #ECEAE6;
+  border-radius: $radius-sm;
+  width: 80%;
+}
+
+.lineTiny {
+  height: 0.75rem;
+  background-color: #ECEAE6;
+  border-radius: $radius-sm;
+  width: 20%;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
